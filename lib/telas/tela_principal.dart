@@ -85,7 +85,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
       valorYenString = '${mapBody['results']['currencies']['JPY']['buy']}';
       valorYen = mapBody['results']['currencies']['JPY']['variation'];
 
-          ibovespa = '${mapBody['results']['stocks']['IBOVESPA']['points']}';
+    ibovespa = '${mapBody['results']['stocks']['IBOVESPA']['points']}';
     ibovespaValor = mapBody['results']['stocks']['IBOVESPA']['variation'];
     
     ifix = '${mapBody['results']['stocks']['IFIX']['points']}';
@@ -219,7 +219,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
             ),
           ),
           Row(children: [
-            SizedBox(
+            const SizedBox(
               width: 445,
             ),
           Botao(

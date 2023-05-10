@@ -22,7 +22,10 @@ class _TelaFinancasState extends State<TelaFinancas> {
     voltar() {
       Navigator.pop(context);
     }
-    
+
+      
+      Navigator.pushNamed(context, '/telaFinanças', arguments: n);
+
   criaBody() {
     return Column(
         children: [
@@ -127,7 +130,15 @@ class _TelaFinancasState extends State<TelaFinancas> {
                             ValorComponenteAcoes(valor: a.nikkeiValor),
                   ],
                 ),
-                
+                Row(children: [
+            const SizedBox(
+              width: 445,
+            ),
+          Botao(
+            texto: 'Ir para Ações',
+            funcao: navegarAcoes,
+          )
+          ]),
         ],
         ),
     )],
