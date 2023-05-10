@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prova_clavison/telas/tela_bitcoin.dart';
 import '/telas/tela_financas.dart';
 import 'telas/tela_principal.dart';
 
@@ -22,6 +23,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/telaPrincipal': (context) => TelaPrincipal(),
         '/telaFinanças': (context) => TelaFinancas(),
+        '/telaBitcoin' :(context) => TelaBitcoin(),
       },
     );
   }

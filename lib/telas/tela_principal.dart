@@ -26,7 +26,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   double ibovespaValor = 0;
 
   String ifix = 'XXXX';
-  double ifixValor= 0;
+  double ifixValor = 0;
 
   String nasdaq = 'XXXX';
   double nasdaqValor = 0;
@@ -38,13 +38,13 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   double cacValor = 0;
 
   String nikkei = 'XXXX';
-  double nikkeiValor= 0;
+  double nikkeiValor = 0;
 
   String blockChain = 'XXXX';
-  double blockChainValor= 0;
+  double blockChainValor = 0;
 
-  String coinBase= 'XXXX';
-  double coinBaseValor= 0;
+  String coinBase = 'XXXX';
+  double coinBaseValor = 0;
 
   String bitStamp = 'XXXX';
   double bitStampValor = 0;
@@ -54,7 +54,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
   String mercadoBitcoin = 'XXXX';
   double mercadoBitcoinValor = 0;
-  
+
   String valorDolarString = 'XXXX';
   double valorDolar = 0;
   String valorEuroString = 'XXXX';
@@ -74,50 +74,67 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
     setState(() {
       valorDolarString = '${mapBody['results']['currencies']['USD']['buy']}';
+
       valorDolar = mapBody['results']['currencies']['USD']['variation'];
 
       valorEuroString = '${mapBody['results']['currencies']['EUR']['buy']}';
+
       valorEuro = mapBody['results']['currencies']['EUR']['variation'];
 
       valorPesoString = '${mapBody['results']['currencies']['ARS']['buy']}';
+
       valorEuro = mapBody['results']['currencies']['ARS']['variation'];
 
       valorYenString = '${mapBody['results']['currencies']['JPY']['buy']}';
+
       valorYen = mapBody['results']['currencies']['JPY']['variation'];
 
-    ibovespa = '${mapBody['results']['stocks']['IBOVESPA']['points']}';
-    ibovespaValor = mapBody['results']['stocks']['IBOVESPA']['variation'];
-    
-    ifix = '${mapBody['results']['stocks']['IFIX']['points']}';
-    ifixValor = mapBody['results']['stocks']['IFIX']['variation'];
+      ibovespa = '${mapBody['results']['stocks']['IBOVESPA']['points']}';
 
-    nasdaq = '${mapBody['results']['stocks']['NASDAQ']['points']}';
-    nasdaqValor = mapBody['results']['stocks']['NASDAQ']['variation'];
+      ibovespaValor = mapBody['results']['stocks']['IBOVESPA']['variation'];
 
-    downjones = '${mapBody['results']['stocks']['DOWJONES']['points']}';
-    downjonesValor = mapBody['results']['stocks']['DOWJONES']['variation'];
+      ifix = '${mapBody['results']['stocks']['IFIX']['points']}';
 
-    cac = '${mapBody['results']['stocks']['CAC']['points']}';
-    cacValor = mapBody['results']['stocks']['CAC']['variation']; 
+      ifixValor = mapBody['results']['stocks']['IFIX']['variation'];
 
-    nikkei = '${mapBody['results']['stocks']['NIKKEI']['points']}';
-    nikkeiValor = mapBody['results']['stocks']['NIKKEI']['variation']; 
+      nasdaq = '${mapBody['results']['stocks']['NASDAQ']['points']}';
 
-    blockChain = '${mapBody['results']['bitcoin']['blockchain_info']['last']}';
-    blockChainValor = mapBody['results']['bitcoin']['blockchain_info']['variation'];
+      nasdaqValor = mapBody['results']['stocks']['NASDAQ']['variation'];
 
-    coinBase = '${mapBody['results']['bitcoin']['coinbase']['last']}';
-    coinBaseValor = mapBody['results']['bitcoin']['coinbase']['variation'];
+      downjones = '${mapBody['results']['stocks']['DOWJONES']['points']}';
 
-    bitStamp = '${mapBody['results']['bitcoin']['bitstamp']['points']}';
-    bitStampValor = mapBody['results']['bitcoin']['bitstamp']['variation'];
+      downjonesValor = mapBody['results']['stocks']['DOWJONES']['variation'];
 
-    foxBit = '${mapBody['results']['bitcoin']['foxbit']['points']}';
-    foxBitValor = mapBody['results']['bitcoin']['foxbit']['variation'];
+      cac = '${mapBody['results']['stocks']['CAC']['points']}';
 
-    mercadoBitcoin = '${mapBody['results']['bitcoin']['mercadobitcoin']['points']}';
-    mercadoBitcoinValor = mapBody['results']['bitcoin']['mercadobitcoin']['variation'];
-      
+      cacValor = mapBody['results']['stocks']['CAC']['variation'];
+
+      nikkei = '${mapBody['results']['stocks']['NIKKEI']['points']}';
+
+      nikkeiValor = mapBody['results']['stocks']['NIKKEI']['variation'];
+
+      blockChain =
+          '${mapBody['results']['bitcoin']['blockchain_info']['last']}';
+
+      blockChainValor =
+          mapBody['results']['bitcoin']['blockchain_info']['variation'];
+
+      coinBase = '${mapBody['results']['bitcoin']['coinbase']['last']}';
+
+      coinBaseValor = mapBody['results']['bitcoin']['coinbase']['variation'];
+
+      bitStamp = '${mapBody['results']['bitcoin']['bitstamp']['last']}';
+
+      bitStampValor = mapBody['results']['bitcoin']['bitstamp']['variation'];
+
+      foxBit = '${mapBody['results']['bitcoin']['foxbit']['last']}';
+
+      foxBitValor = mapBody['results']['bitcoin']['foxbit']['variation'];
+      mercadoBitcoin =
+          '${mapBody['results']['bitcoin']['mercadobitcoin']['last']}';
+
+      mercadoBitcoinValor =
+          mapBody['results']['bitcoin']['mercadobitcoin']['variation'];
     });
   }
 
@@ -125,10 +142,29 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
   Widget build(BuildContext context) {
     navegarAcoes() {
       buscarApi();
-      NavegacaoValor n = NavegacaoValor(bitStamp, bitStampValor, blockChain, blockChainValor, cac, 
-      cacValor, coinBase, coinBaseValor, downjones, downjonesValor, foxBit, foxBitValor, 
-      ibovespa, ibovespaValor, ifix, ifixValor, mercadoBitcoin, mercadoBitcoinValor, 
-      nasdaq, nasdaqValor, nikkei, nikkeiValor);
+      NavegacaoValor n = NavegacaoValor(
+          bitStamp,
+          bitStampValor,
+          blockChain,
+          blockChainValor,
+          cac,
+          cacValor,
+          coinBase,
+          coinBaseValor,
+          downjones,
+          downjonesValor,
+          foxBit,
+          foxBitValor,
+          ibovespa,
+          ibovespaValor,
+          ifix,
+          ifixValor,
+          mercadoBitcoin,
+          mercadoBitcoinValor,
+          nasdaq,
+          nasdaqValor,
+          nikkei,
+          nikkeiValor);
 
       Navigator.pushNamed(context, '/telaFinanças', arguments: n);
     }
@@ -220,12 +256,12 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           ),
           Row(children: [
             const SizedBox(
-              width: 445,
+              width: 460,
             ),
-          Botao(
-            texto: 'Ir para Ações',
-            funcao: navegarAcoes,
-          )
+            Botao(
+              texto: 'Ir para Ações',
+              funcao: navegarAcoes,
+            )
           ]),
         ],
       );

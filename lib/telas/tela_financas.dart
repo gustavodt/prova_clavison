@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:prova_clavison/modelos/navegacao_valores.dart';
 
+import '../componentes/botao.dart';
 import '../componentes/caixa_variacao.dart';
 import '../componentes/caixa_variacao_acoes.dart';
 
@@ -15,19 +16,15 @@ class TelaFinancas extends StatefulWidget {
 
 class _TelaFinancasState extends State<TelaFinancas> {
   @override
-  
   Widget build(BuildContext context) {
-     final a = ModalRoute.of(context)!.settings.arguments as NavegacaoValor;
+    final a = ModalRoute.of(context)!.settings.arguments as NavegacaoValor;
 
-    voltar() {
-      Navigator.pop(context);
+    navegarBitcoin() {
+      Navigator.pushNamed(context, '/telaBitcoin', arguments: a);
     }
 
-      
-      Navigator.pushNamed(context, '/telaFinanças', arguments: n);
-
-  criaBody() {
-    return Column(
+    criaBody() {
+      return Column(
         children: [
           const Center(
             heightFactor: 2,
@@ -49,8 +46,11 @@ class _TelaFinancasState extends State<TelaFinancas> {
               children: [
                 Row(
                   children: const [
-                    Text('IBOVESPA',style: TextStyle(fontSize: 20),),
-                     SizedBox(
+                    Text(
+                      'IBOVESPA',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
                       width: 135,
                     ),
                     Text(
@@ -74,11 +74,16 @@ class _TelaFinancasState extends State<TelaFinancas> {
                     ValorComponenteAcoes(valor: a.ifixValor),
                   ],
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: const [
-                    Text('NASDAQ',style: TextStyle(fontSize: 20),),
-                     SizedBox(
+                    Text(
+                      'NASDAQ',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
                       width: 144,
                     ),
                     Text(
@@ -102,11 +107,16 @@ class _TelaFinancasState extends State<TelaFinancas> {
                     ValorComponenteAcoes(valor: a.downjonesValor),
                   ],
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   children: const [
-                    Text('CAC',style: TextStyle(fontSize: 20),),
-                     SizedBox(
+                    Text(
+                      'CAC',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(
                       width: 186,
                     ),
                     Text(
@@ -127,23 +137,24 @@ class _TelaFinancasState extends State<TelaFinancas> {
                     Text(double.parse(a.nikkei).toStringAsFixed(2),
                         style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold)),
-                            ValorComponenteAcoes(valor: a.nikkeiValor),
+                    ValorComponenteAcoes(valor: a.nikkeiValor),
                   ],
                 ),
-                Row(children: [
-            const SizedBox(
-              width: 445,
+              ],
             ),
-          Botao(
-            texto: 'Ir para Ações',
-            funcao: navegarAcoes,
-          )
-          ]),
+          ),
+          Row(children: [
+                  const SizedBox(
+                    width: 460,
+                  ),
+                  Botao(
+                    texto: 'Ir para Bitcoin',
+                    funcao: navegarBitcoin,
+                  )
+                ]),
         ],
-        ),
-    )],
-          );
-  }
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
